@@ -7,6 +7,9 @@ using UnityEngine;
 using System.Threading;
 using System.Collections.Generic;
 
+/// <summary>
+/// 碎片效果
+/// </summary>
 public unsafe class BRG_Debris : MonoBehaviour
 {
     public Mesh m_mesh;

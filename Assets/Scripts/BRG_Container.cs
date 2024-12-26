@@ -20,7 +20,8 @@ using UnityEngine.Rendering;
 
 */
 
-
+//使用BRG渲染地面的网格和碎片
+//一个BRG容器，决定了网格，大小，颜色
 public unsafe class BRG_Container
 {
     // In GLES mode, BRG raw buffer is a constant buffer (UBO)

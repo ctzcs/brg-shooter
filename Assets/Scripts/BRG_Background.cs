@@ -6,6 +6,9 @@ using UnityEngine;
 using Unity.Profiling;
 using System.Collections.Generic;
 
+/// <summary>
+/// 背景中的方块和粒子效果
+/// </summary>
 public unsafe class BRG_Background : MonoBehaviour
 {
     public static BRG_Background gBackgroundManager;
@@ -26,6 +29,7 @@ public unsafe class BRG_Background : MonoBehaviour
     public int m_backgroundH = 100;
     private const int kGpuItemSize = (3 * 2 + 1) * 16;  //  GPU item size ( 2 * 4x3 matrices plus 1 color per item )
 
+    //BRG容器
     private BRG_Container m_brgContainer;
     private JobHandle m_updateJobFence;
 
@@ -346,13 +350,12 @@ public unsafe class BRG_Background : MonoBehaviour
     {
 
         m_updateJobFence.Complete();
-
+        
         // upload ground cells
         s_BackgroundGPUSetData.Begin();
         m_brgContainer.UploadGpuData(m_itemCount);
         s_BackgroundGPUSetData.End();
-
-
+        
         // upload debris GPU data
         s_DebrisGPUSetData.Begin();
         BRG_Debris.gDebrisManager.UploadGpuData();
